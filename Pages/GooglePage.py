@@ -1,8 +1,7 @@
-from BasePage import BasePage
+from BasePage.BasePage import BasePage
 from selenium.webdriver.common.by import By
 
 class GoogleLocators:
-
 
     LOCATOR_GOOGLE_SEARCH = (By.NAME, "q")
     LOCATOR_GOOGLE_SEARCH_BUTTON = (By.XPATH, '//*[@name="btnK"]')
@@ -18,7 +17,6 @@ class GoogleLocators:
 
 
 class Search(BasePage):
-
 
     def enter_word(self, word):
         search = self.find_element(GoogleLocators.LOCATOR_GOOGLE_SEARCH)
@@ -38,15 +36,6 @@ class Search(BasePage):
     def click_on_three(self):
         return self.find_element(GoogleLocators.LOCATOR_GOOGLE_BUTTON_THREE).click()
 
-    def click_on_mult(self):
-        return self.find_element(GoogleLocators.LOCATOR_GOOGLE_BUTTON_MULT).click()
-
-    def click_on_minus(self):
-        return self.find_element(GoogleLocators.LOCATOR_GOOGLE_BUTTON_MINUS).click()
-
-    def click_on_plus(self):
-        return self.find_element(GoogleLocators.LOCATOR_GOOGLE_BUTTON_PLUS).click()
-
     def click_on_equals(self):
         return self.find_element(GoogleLocators.LOCATOR_GOOGLE_BUTTON_EQUALS).click()
 
@@ -55,3 +44,14 @@ class Search(BasePage):
 
     def line_memory(self):
         return self.find_element(GoogleLocators.LOCATOR_GOOGLE_LINE_MEMORY).text
+
+    def calculate(self, procedure):
+        if procedure == 'mult':
+            return self.find_element(GoogleLocators.LOCATOR_GOOGLE_BUTTON_MULT).click()
+        if procedure == 'minus':
+            return self.find_element(GoogleLocators.LOCATOR_GOOGLE_BUTTON_MINUS).click()
+        if procedure == 'plus':
+            return self.find_element(GoogleLocators.LOCATOR_GOOGLE_BUTTON_PLUS).click()
+
+
+
